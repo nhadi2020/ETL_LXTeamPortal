@@ -1,0 +1,594 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/9/2022 4:37:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BUS-P10E54614"
+  DTS:CreatorName="UOFI\nhadi"
+  DTS:DTSID="{9D7A9A32-ECBC-46D5-B166-13CD4A2B0895}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{FAF503CD-D804-4944-8463-075F01DB0B91}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\APPS to DEV Upsert - etl UserInformation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8CE2E003-3E9D-4C43-9B9B-23F4B9AD2263}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="APPS to DEV Upsert - etl UserInformation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="bus-sqlapps Canvas - users"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">EXEC dbo.[_ETL_LXTeamPortal_User_List]</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Connections[ADO NET]"
+                  connectionManagerID="{0DF0D875-64F3-4C70-A969-42DE1718F810}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[bus-sqlapps.ad.uillinois.edu.Canvas.SQL_DSUpload]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[UIN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[UIN]"
+                      length="10"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[UIN]"
+                      name="UIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[FullName]"
+                      length="200"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[NetID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[NetID]"
+                      length="60"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[NetID]"
+                      name="NetID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[UIN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="UIN" />
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].ExternalColumns[NetID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NetID" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="bus-sqldev - LXTeamPortal - UsrInformation"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">_etl.UserInformationCanvas</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Connections[ADO NET]"
+                  connectionManagerID="{6DBAE9F6-405A-4CCD-A962-1781025F8E19}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[bus-sqldev.ad.uillinois.edu.LXTeamPortal.SQL_DSupload]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].Columns[NetID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="NetID"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[NetId]"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[NetID]" />
+                    <inputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].Columns[UIN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="UIN"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[UIN]"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[UIN]" />
+                    <inputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].Columns[FullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output].Columns[FullName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[CreateDatetime]"
+                      dataType="dbTimeStamp"
+                      name="CreateDatetime">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[CreateNetID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="CreateNetID">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Fullname">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[NetId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NetId">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input].ExternalColumns[UIN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="UIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\APPS to DEV Upsert - etl UserInformation.Paths[Default Output]"
+              endId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DEV EXEC Update TABLE - dbo UserInformation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cb648d4d-7213-4045-a777-119bd454fa77}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DEV EXEC Update TABLE - dbo UserInformation"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBAE9F6-405A-4CCD-A962-1781025F8E19}"
+          SQLTask:SqlStatementSource="EXEC _etl.UserInformation_Update" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DEV TRUNCATE TABLE - etl UserInformationCanvas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{89D3E7EB-8E3F-47D6-A47F-2A2DD886EEF2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DEV TRUNCATE TABLE - etl UserInformationCanvas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBAE9F6-405A-4CCD-A962-1781025F8E19}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE _etl.UserInformationCanvas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A03EC9CE-F322-4764-820A-033FEE3D52CE}"
+      DTS:From="Package\DEV TRUNCATE TABLE - etl UserInformationCanvas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\APPS to DEV Upsert - etl UserInformation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{583810A3-0870-4BB0-BE41-9F6BCA7838D8}"
+      DTS:From="Package\APPS to DEV Upsert - etl UserInformation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DEV EXEC Update TABLE - dbo UserInformation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="330,42"
+          Id="Package\DEV TRUNCATE TABLE - etl UserInformationCanvas"
+          TopLeft="352.5,63.9166663491891" />
+        <NodeLayout
+          Size="309,42"
+          Id="Package\DEV EXEC Update TABLE - dbo UserInformation"
+          TopLeft="369.5,281.833332440092" />
+        <NodeLayout
+          Size="274.5,42"
+          Id="Package\APPS to DEV Upsert - etl UserInformation"
+          TopLeft="380,178.208332448163" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="517.375,105.916666349189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.2916660989739"
+              Start="0,0"
+              End="0,64.7916660989739">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.7916660989739" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="520.625,220.208332448163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.6249999919286"
+              Start="0,0"
+              End="0,54.1249999919286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.1249999919286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="-- Here is the ETL Process controlled by the SSIS package&#xA;--  Folder Name : ETLforApps&#xA;--  Package Name: Upsert LXTeamPortal - UserInformation.dtsx&#xA;--   Pull Canvas user data records (5) using SP (1), upload the records to temp table (3) on DEV&#xA;--   then run SP (2) at DEV to update UserInformation table (4) on DEV&#xA;--  Related SP: &#xA;--   (1) bus-sqlpps.Canvas.dbo._ETL_LXTeamPortal_User_List&#xA;--   (2) bus-sqldev.LXTeamPortal._etl.UserInformation_Update&#xA;--  Related table(s):&#xA;--   (3) bus-sqlev.LXTeamPortal._etl.UserInformationCanvas  (temporary tables)&#xA;--   (4) bus-sqlev.LXTeamPortal.dbo.UserInformation&#xA;--   (5) bus-sqlpps.Canvas.dbo.users&#xA;--  Job Name : ETL for Apps - DEV LXTeamPortal - User Related tables&#xA;--   Daily run on bus-sqlapps every 8 AM&#xA;--&#xA;-- Logging and reporting:&#xA;--  Not Yet"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="526,295.5"
+          Id="4ca82f3c-5047-4016-ae2b-403eab0437f8"
+          TopLeft="114.5,424.583333069666" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\APPS to DEV Upsert - etl UserInformation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="284,42"
+          Id="Package\APPS to DEV Upsert - etl UserInformation\bus-sqldev - LXTeamPortal - UsrInformation"
+          TopLeft="435.5,332.583331681374" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\APPS to DEV Upsert - etl UserInformation\bus-sqlapps Canvas - users"
+          TopLeft="472,205.291665646971" />
+        <EdgeLayout
+          Id="Package\APPS to DEV Upsert - etl UserInformation.Paths[Default Output]"
+          TopLeft="577,247.291665646971">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85.2916660344025"
+              Start="0,0"
+              End="0,77.7916660344025">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.7916660344025" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
